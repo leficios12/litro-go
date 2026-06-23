@@ -1,0 +1,47 @@
+#main notes
+A website that calculates the total gas consumption of your trip;
+
+Features:
+
+Gives the current gas price (updates every x hours) 
+Calculates the total distance from Point A to Point B (need api)
+Calculates the average total gas price based on:
+how many km the trip would be
+How much does the vehicle consumes gas e.g 40km/litter
+
+The total gas price could also be divided for group trip:
+Example: 
+Total is 5500PHP
+
+The trip included 6 peers
+
+916.66PHP would be the individual pool resource
+
+Upon research: 
+(every Tuesday) → update MongoDB → Express API → React UI 
+
+
+The core loop is clear: distance → fuel needed → cost → split. That's genuinely useful.
+
+The group split feature is a great differentiator — most fuel calculators skip this entirely.
+
+Thinking about live gas prices from the start is the right call; stale prices make the result meaningless.
+
+Inputs you'll need from the user:
+Vehicle fuel efficiency (km/L) — you have this ✓
+Fuel type (unleaded, diesel, premium) — prices differ significantly
+Number of passengers for the split ✓
+
+API options worth looking into:
+Distance: Google Maps Distance Matrix API or OpenRouteService (free tier) — these give real road distance, not just straight-line
+
+Nice-to-haves for later:
+Round trip toggle (doubles the distance)
+Multiple stops, not just A→B
+Save/share trip summary
+Currency already fits PHP which is great for your market
+
+PROBLEM:
+No FREE API for GAS prices in Philippines.  
+Solution:
+Manually update the backend for gas prices every 1 / 2 weeks:
