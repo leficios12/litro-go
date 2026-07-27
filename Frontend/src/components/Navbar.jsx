@@ -23,19 +23,13 @@ function Navbar() {
           <a href="#about" className={baseStyle}>
             About
           </a>
-          <a
-            href="https://github.com/Leficios12"
-            target="_blank"
-            rel="noreferrer"
-            className={baseStyle}
-          >
+          <a href="https://github.com/Leficios12" target="_blank" rel="noreferrer" className={baseStyle}>
             Github
           </a>
         </div>
-
       </div>
     </nav>
   )
 }
 
-export default Navbar
+export default Navbar;
