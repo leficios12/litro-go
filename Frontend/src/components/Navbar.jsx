@@ -1,3 +1,7 @@
+
+
+const baseStyle = "text-m font-medium text-slate-300 hover:text-white transition-colors duration-200"
+
 function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#0f172a] border-b border-[#1e293b] h-40 py-4">
@@ -10,20 +14,20 @@ function Navbar() {
 
         {/* Nav Links */}
         <div className="flex items-center gap-20">
-          <a href="#how-it-works" className="text-m font-medium text-slate-300 hover:text-white transition-colors duration-200">
+          <a href="#how-it-works" className={baseStyle}>
             How it works
           </a>
-          <a href="#calculator" className="text-m font-medium text-slate-300 hover:text-white transition-colors duration-200">
+          <a href="#calculator" className={baseStyle}>
             Calculator
           </a>
-          <a href="#about" className="text-m font-medium text-slate-300 hover:text-white transition-colors duration-200">
+          <a href="#about" className={baseStyle}>
             About
           </a>
           <a
             href="https://github.com/Leficios12"
             target="_blank"
             rel="noreferrer"
-            className="text-m font-medium text-slate-300 hover:text-white transition-colors duration-200"
+            className={baseStyle}
           >
             Github
           </a>
