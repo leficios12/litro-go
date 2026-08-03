@@ -2,9 +2,9 @@ function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden rounded-[2rem] border border-slate-700 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-8 py-16 text-slate-100 shadow-2xl shadow-slate-950/30 md:px-16 md:py-24"
+      className="px-8 py-16 text-slate-100 md:px-16 md:py-24"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.25),_transparent_45%),radial-gradient(circle_at_bottom_left,_rgba(52,211,153,0.18),_transparent_30%)]" />
+      <div className="" />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-3xl space-y-8">
           
@@ -13,7 +13,7 @@ function HeroSection() {
               Calculate your <span className="text-emerald-600">trip fuel cost</span> before you leave
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-              Enter your route, vehicle details, and split the total fairly with your barkada. No guessing, no awkward kwentahan after.
+              Enter your route, vehicle details, and split the total fairly with your friends. No guessing, no awkward computation after.
             </p>
           </div>
 
@@ -48,7 +48,7 @@ function HeroSection() {
                 <p className="mt-2 text-xl font-semibold text-emerald-400">₱68 / L</p>
               </div>
               <div className="rounded-3xl bg-slate-900 p-4 text-sm">
-                <p className="text-slate-400">Barkada split</p>
+                <p className="text-slate-400">Group split</p>
                 <p className="mt-2 text-xl font-semibold text-white">Fair & easy</p>
               </div>
             </div>
