@@ -9,7 +9,7 @@ function Navbar() {
 
         {/* Logo */}
         <a href="#hero" className="flex items-center">
-          <img src="/images/LitroGOLogo.png" alt="LitroGo" className="h-25" />
+          <img src="/images/LitroGOLogo.png" alt="LitroGo" className="h-20" />
         </a>
 
         {/* Nav Links */}

@@ -7,10 +7,10 @@ function Info() {
   ];
 
   return (
-    <section id="Info" className="border-t p-4 border-b border-slate-800">
-      <div className="mx-auto max-w-6xl flex">
+    <section id="Info" className="border-t p-4 border-b border-slate-800 ">
+      <div className="mx-auto max-w-6xl flex ">
         {stats.map((item, i) => (
-          <div key={i} className="flex-1 flex flex-col items-center justify-center text-center py-10 px-6">
+          <div key={i} className="flex-1 flex flex-col text-center py-10 px-6">
             <h3 className="text-white text-4xl font-bold mb-2">
               {item.header}
             </h3>
