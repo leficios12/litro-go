@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar'
 import './App.css'
-import Info from './components/Info';
 import HeroSection from './sections/HeroSection';
+import InfoSection from './sections/InfoSection';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <div className="pt-40">
         <Navbar />
         <HeroSection />
-        <Info />
+        <InfoSection />
       </div>
     </>
   )
