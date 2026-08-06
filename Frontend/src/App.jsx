@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar'
 import './App.css'
-import HeroSection from './components/HeroSection';
 import Info from './components/Info';
+import HeroSection from './sections/HeroSection';
 
 function App() {
   return (
