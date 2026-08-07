@@ -2,7 +2,7 @@
 
 const baseStyle = "text-m font-medium text-slate-300 hover:text-white transition-colors duration-200"
 
-function Navbar() {
+const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#0f172a] border-b-5 border-[#1e293b] h-30 p-2">
       <div className="max-w-7xl mx-auto px-10 py-2 flex items-center justify-between">
@@ -29,7 +29,7 @@ function Navbar() {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
 export default Navbar;
