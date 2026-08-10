@@ -1,4 +1,4 @@
-function HeroSection() {
+const HeroSection = () => {
   return (
     <section
       id="hero"

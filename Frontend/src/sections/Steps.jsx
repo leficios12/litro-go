@@ -1,11 +1,11 @@
 import StepsCard from '../components/StepsCard.jsx'
 
 
-function Steps() {
+const Steps = () => {
   return (
     <section className="px-12 py-20 bg-[#0a1020]">
       <div>
-        <p className="text-green-500 text-xs font-semibold tracking-widest mb-3">HOW IT WORKS</p>
+        <p className="text-emerald-600 text-xs font-semibold tracking-widest mb-3">HOW IT WORKS</p>
         <h2 className="text-white text-3xl font-bold mb-2">Plan your trip, split the cost</h2>
         <p className="text-slate-400 text-sm mb-10">Four steps, done in seconds.</p>
       </div>
