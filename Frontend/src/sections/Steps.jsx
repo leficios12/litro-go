@@ -4,13 +4,15 @@ import StepsCard from '../components/StepsCard.jsx'
 const Steps = () => {
   return (
     <section className="px-12 py-20 bg-[#0a1020]">
-      <div>
+      <div className="relative mx-auto  max-w-6xl flex-col gap-8 lg:flex-row lg:items-center lg:justify-between ">
         <p className="text-emerald-600 text-xs font-semibold tracking-widest mb-3">HOW IT WORKS</p>
         <h2 className="text-white text-3xl font-bold mb-2">Plan your trip, split the cost</h2>
         <p className="text-slate-400 text-sm mb-10">Four steps, done in seconds.</p>
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        
+        
         <StepsCard number="1" 
         title="Enter your route" 
         desc="Type your starting point and destination. We calculate the actual road distance via Google Maps." 
