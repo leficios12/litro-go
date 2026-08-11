@@ -1,3 +1,4 @@
+import Buttons from "../components/Buttons";
 const HeroSection = () => {
   return (
     <section
@@ -18,20 +19,20 @@ const HeroSection = () => {
           </div>
 
           <div className="flex flex-col gap-4 sm:flex-row">
-            <a href="#calculator" 
-             className="inline-flex w-full items-center justify-center rounded-full bg-emerald-600 px-8 py-4 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 sm:w-auto"
-            >
-              Calculate my trip
-            </a>
-            <a
+            <Buttons href="#calculator" 
+              variant="green"
+              text="Calculator"
+             className="w-fit"
+            />
+            <Buttons
               href="#how-it-works"
-              className="inline-flex w-full items-center justify-center rounded-full border border-slate-600 bg-slate-950/70 px-8 py-4 text-sm font-semibold text-slate-100 transition hover:border-slate-400 hover:text-white sm:w-auto"
-            >
-              How it works
-            </a>
+              variant="secondary"
+              text="How it works"
+              className="w-fit"
+            />
           </div>
         </div>
-
+        
         <div className="rounded-[2rem] border border-slate-700 bg-slate-950/70 p-6 shadow-xl shadow-slate-950/40 backdrop-blur-sm md:p-8">
           <div className="space-y-4">
             <div className="text-sm uppercase tracking-[0.28em] text-slate-400">
