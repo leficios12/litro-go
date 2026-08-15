@@ -1,3 +1,16 @@
+const FuelPrice = require('../models/FuelPrice')
+
+// GET all fuel prices
+const getAllFuelPrices = async (req, res) => {
+  try {
+    const prices = await FuelPrice.find()
+    res.json(prices)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+}
+
+// UPDATE a fuel price
 const updateFuelPrice = async (req, res) => {
   try {
     const { id } = req.params
@@ -12,9 +25,9 @@ const updateFuelPrice = async (req, res) => {
     const updated = await FuelPrice.findByIdAndUpdate(
       id,
       {
-        previousPrice: current.price, // save old price
-        price: price,                 // set new price
-        change: change,               // auto calculated
+        previousPrice: current.price,
+        price: price,
+        change: change,
         updatedAt: Date.now()
       },
       { new: true }
@@ -25,3 +38,5 @@ const updateFuelPrice = async (req, res) => {
     res.status(500).json({ message: err.message })
   }
 }
+
+module.exports = { getAllFuelPrices, updateFuelPrice }
