@@ -1,4 +1,4 @@
-const GasCard = ({ type, price, previousPrice, change }) => {
+const FuelCard = ({ type, price, previousPrice, change }) => {
 
   const isPositive = change > 0;
 
@@ -13,7 +13,9 @@ const GasCard = ({ type, price, previousPrice, change }) => {
       </div>
 
       <p className={`text-sm font-medium ${isPositive ? 'text-red-400' : 'text-emerald-400'}`}>
-        {isPositive ? '↑' : '↓'} {Math.abs(change).toFixed(2)} this week
+        {isPositive ? '↑' : '↓'} 
+        {Math.abs(change).toFixed(2)}
+         this week
       </p>
 
       <p className="text-slate-600 text-xs">Previous: ₱{previousPrice.toFixed(2)}</p>
@@ -22,4 +24,4 @@ const GasCard = ({ type, price, previousPrice, change }) => {
   )
 };
 
-export default GasCard;
+export default FuelCard;
