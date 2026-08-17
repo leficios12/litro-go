@@ -1,19 +1,31 @@
-import { useState, useEffect } from 'react'
-import { getFuelPrices, updateFuelPrice } from '../api/fuel'
+import { useState, useEffect } from 'react';
+import { getFuelPrices, updateFuelPrice } from '../api/fuel';
 
 const AdminSection = () => {
+  const [authorized, setAuthorized] = useState(false);
+  const [input, setInput] = useState('');
   const [fuelPrices, setFuelPrices] = useState([]);
   const [newPrices, setNewPrices] = useState({});
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState(null);
 
+  const handleLogin = () => {
+    if (input === import.meta.env.VITE_ADMIN_PASSWORD) {
+      setAuthorized(true)
+    } else {
+      alert('Wrong password')
+    }
+  }
+
   useEffect(() => {
-    getFuelPrices()
-      .then(data => {
-        setFuelPrices(data)
-        setLoading(false)
-      })
-  }, [])
+    if (authorized) {
+      getFuelPrices()
+        .then(data => {
+          setFuelPrices(data)
+          setLoading(false)
+        })
+    }
+  }, [authorized])
 
   const handleChange = (id, value) => {
     setNewPrices(prev => ({ ...prev, [id]: value }))
@@ -33,6 +45,31 @@ const AdminSection = () => {
     } catch (err) {
       setMessage('Failed to update price')
     }
+  }
+
+  // Password gate
+  if (!authorized) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen gap-4">
+        <p className="text-emerald-600 text-xs font-semibold tracking-widest">ADMIN</p>
+        <h2 className="text-white text-2xl font-bold">Admin Access</h2>
+        <p className="text-slate-400 text-sm">Enter password to continue</p>
+        <input
+          type="password"
+          placeholder="Password"
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && handleLogin()}
+          className="bg-[#1e293b] border border-slate-600 rounded-lg px-4 py-3 text-white text-sm w-64 focus:outline-none focus:border-emerald-500"
+        />
+        <button
+          onClick={handleLogin}
+          className="bg-emerald-700 hover:bg-emerald-600 text-white text-sm font-semibold px-6 py-3 rounded-lg transition w-64"
+        >
+          Login
+        </button>
+      </div>
+    )
   }
 
   return (
@@ -72,7 +109,6 @@ const AdminSection = () => {
                     ₱{fuel.price.toFixed(2)}
                   </p>
                 </div>
-
                 <div className="flex items-center gap-3">
                   <input
                     type="number"
@@ -88,7 +124,6 @@ const AdminSection = () => {
                     Update
                   </button>
                 </div>
-
               </div>
             ))}
           </div>
