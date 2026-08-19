@@ -20,8 +20,8 @@ const GasWeekSection = () => {
   }, []);
 
   return (
-    <section className="px-8 py-16 md:px-16 bg-[#0a1020]">
-      <div className="mx-auto max-w-6xl">
+    <section className="px-8 py-16 mb-10 md:px-16 bg-[#0a1020]">
+      <div className="mx-auto max-w-6xl pb-9">
         
         <p className="text-emerald-600 text-xs font-semibold tracking-widest mb-3">
           THIS WEEK'S PRICES

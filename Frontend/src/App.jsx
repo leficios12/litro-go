@@ -5,23 +5,26 @@ import InfoSection from './sections/InfoSection'
 import Steps from './sections/Steps'
 import GasWeekSection from './sections/GasWeekSection'
 import AdminSection from './sections/AdminSection'
+import CalculatorSection from './sections/CalculatorSection'
+
 
 const MainPage = () => (
   <>
-    <div className="pt-40">
+    <main className="pt-40">
 
       <Navbar />
       <HeroSection />
       <InfoSection />
       <Steps />
       <GasWeekSection />
-    </div>
+      <CalculatorSection />
+    </main>
   </>
 )
 
 const FuelDataPage = () => (
   <>
-    <div className="pt-40">
+    <div className="pt-40 bg-[#0a1020]">
       <Navbar />
       <AdminSection />
     </div>
@@ -39,4 +42,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
