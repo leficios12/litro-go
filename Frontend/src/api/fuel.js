@@ -19,3 +19,4 @@ export const updateFuelPrice = async (id, price) => {
   const data = await response.json()
   return data
 }
+
