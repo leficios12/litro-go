@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getFuelPrices } from '../api/fuel'
 import { calculateDistance } from '../api/distance'
+import MapView from '../components/MapView'
 
 const CalculatorSection = () => {
   const [fuelPrices, setFuelPrices] = useState([])
@@ -13,18 +14,16 @@ const CalculatorSection = () => {
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [routeData, setRouteData] = useState(null)
 
-  // fetch fuel prices on load
   useEffect(() => {
     getFuelPrices().then(data => {
       setFuelPrices(data)
-      // auto fill gas price based on selected fuel
       const fuel = data.find(f => f.type === selectedFuel)
       if (fuel) setGasPrice(fuel.price)
     })
   }, [])
 
-  // update gas price when fuel type changes
   useEffect(() => {
     const fuel = fuelPrices.find(f => f.type === selectedFuel)
     if (fuel) setGasPrice(fuel.price)
@@ -39,9 +38,9 @@ const CalculatorSection = () => {
     setLoading(true)
     setError(null)
     setResult(null)
+    setRouteData(null)
 
     try {
-      // get distance from backend
       const distanceData = await calculateDistance(from, to)
 
       if (distanceData.message) {
@@ -63,6 +62,13 @@ const CalculatorSection = () => {
         totalCost: totalCost.toFixed(2),
         costPerPerson: costPerPerson.toFixed(2),
         passengers
+      })
+
+      // save route data for map
+      setRouteData({
+        fromCoords: distanceData.fromCoords,
+        toCoords: distanceData.toCoords,
+        routeCoordinates: distanceData.routeCoordinates
       })
 
     } catch (err) {
@@ -198,10 +204,21 @@ const CalculatorSection = () => {
 
           </div>
 
-          {/* Right — Results */}
+          {/* Right — Map + Results */}
           <div className="flex flex-col gap-4">
+
+            {/* Map */}
+            <div className="rounded-2xl overflow-hidden border border-slate-700" style={{ height: '400px' }}>
+              <MapView
+                fromCoords={routeData?.fromCoords}
+                toCoords={routeData?.toCoords}
+                routeCoordinates={routeData?.routeCoordinates}
+              />
+            </div>
+
+            {/* Results */}
             {!result ? (
-              <div className="bg-[#1e293b] border border-slate-700 rounded-2xl p-8 flex flex-col items-center justify-center text-center h-full min-h-64">
+              <div className="bg-[#1e293b] border border-slate-700 rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                 <p className="text-4xl mb-4">⛽</p>
                 <p className="text-slate-400 text-sm">Fill in the details and hit calculate to see your trip breakdown.</p>
               </div>
@@ -240,7 +257,7 @@ const CalculatorSection = () => {
                 </div>
 
                 {/* Passengers */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   {Array.from({ length: result.passengers }).map((_, i) => (
                     <div key={i} className="w-8 h-8 rounded-full bg-emerald-900 border border-emerald-700 flex items-center justify-center text-xs font-bold text-emerald-400">
                       {i + 1}
@@ -251,8 +268,8 @@ const CalculatorSection = () => {
 
               </div>
             )}
-          </div>
 
+          </div>
         </div>
       </div>
     </section>
