@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react'
 import { getFuelPrices } from '../api/fuel'
 import { calculateDistance } from '../api/distance'
 import MapView from '../components/MapView'
+import LocationInput from '../components/LocationInput'
 
 const CalculatorSection = () => {
   const [fuelPrices, setFuelPrices] = useState([])
-  const [from, setFrom] = useState('')
-  const [to, setTo] = useState('')
+  const [from, setFrom] = useState(null)
+  const [to, setTo] = useState(null)
   const [selectedFuel, setSelectedFuel] = useState('Unleaded 91')
   const [gasPrice, setGasPrice] = useState('')
   const [efficiency, setEfficiency] = useState('')
@@ -41,7 +42,7 @@ const CalculatorSection = () => {
     setRouteData(null)
 
     try {
-      const distanceData = await calculateDistance(from, to)
+      const distanceData = await calculateDistance(from.label, to.label)
 
       if (distanceData.message) {
         setError(distanceData.message)
@@ -64,7 +65,6 @@ const CalculatorSection = () => {
         passengers
       })
 
-      // save route data for map
       setRouteData({
         fromCoords: distanceData.fromCoords,
         toCoords: distanceData.toCoords,
@@ -84,7 +84,6 @@ const CalculatorSection = () => {
     <section id="calculator" className="px-8 py-16 md:px-16 bg-[#0f172a]">
       <div className="mx-auto max-w-6xl">
 
-        {/* Header */}
         <p className="text-emerald-600 text-xs font-semibold tracking-widest mb-3">
           CALCULATOR
         </p>
@@ -104,26 +103,20 @@ const CalculatorSection = () => {
             <div className="bg-[#1e293b] border border-slate-700 rounded-2xl p-5">
               <p className="text-slate-400 text-xs font-semibold tracking-widest uppercase mb-4">Route</p>
               <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-full bg-amber-500 flex items-center justify-center text-xs font-bold text-black flex-shrink-0">A</div>
-                  <input
-                    type="text"
-                    placeholder="Starting point"
-                    value={from}
-                    onChange={e => setFrom(e.target.value)}
-                    className="flex-1 bg-[#0f172a] border border-slate-600 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-emerald-500"
-                  />
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center text-xs font-bold text-white flex-shrink-0">B</div>
-                  <input
-                    type="text"
-                    placeholder="Destination"
-                    value={to}
-                    onChange={e => setTo(e.target.value)}
-                    className="flex-1 bg-[#0f172a] border border-slate-600 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-emerald-500"
-                  />
-                </div>
+                <LocationInput
+                  placeholder="Starting point"
+                  value={from?.label || ''}
+                  onChange={setFrom}
+                  badge="A"
+                  badgeColor="bg-amber-500 text-black"
+                />
+                <LocationInput
+                  placeholder="Destination"
+                  value={to?.label || ''}
+                  onChange={setTo}
+                  badge="B"
+                  badgeColor="bg-emerald-600 text-white"
+                />
               </div>
             </div>
 
@@ -188,12 +181,10 @@ const CalculatorSection = () => {
               </div>
             </div>
 
-            {/* Error */}
             {error && (
               <p className="text-red-400 text-sm">{error}</p>
             )}
 
-            {/* Calculate button */}
             <button
               onClick={handleCalculate}
               disabled={loading}
@@ -207,7 +198,6 @@ const CalculatorSection = () => {
           {/* Right — Map + Results */}
           <div className="flex flex-col gap-4">
 
-            {/* Map */}
             <div className="rounded-2xl overflow-hidden border border-slate-700" style={{ height: '400px' }}>
               <MapView
                 fromCoords={routeData?.fromCoords}
@@ -216,7 +206,6 @@ const CalculatorSection = () => {
               />
             </div>
 
-            {/* Results */}
             {!result ? (
               <div className="bg-[#1e293b] border border-slate-700 rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                 <p className="text-4xl mb-4">⛽</p>
@@ -225,13 +214,11 @@ const CalculatorSection = () => {
             ) : (
               <div className="bg-[#1e293b] border border-slate-700 rounded-2xl p-5 flex flex-col gap-4">
 
-                {/* Route summary */}
                 <div>
                   <p className="text-slate-400 text-xs font-semibold tracking-widest uppercase mb-2">Trip Summary</p>
                   <p className="text-white text-sm">{result.from} → {result.to}</p>
                 </div>
 
-                {/* Metrics */}
                 <div className="grid grid-cols-3 gap-3">
                   <div className="bg-[#0f172a] border border-slate-700 rounded-xl p-3">
                     <p className="text-slate-400 text-xs mb-1">Distance</p>
@@ -250,13 +237,11 @@ const CalculatorSection = () => {
                   </div>
                 </div>
 
-                {/* Split */}
                 <div className="bg-[#0f172a] border border-slate-700 rounded-xl p-4 flex items-center justify-between">
                   <p className="text-slate-400 text-sm">Each passenger pays</p>
                   <p className="text-emerald-400 text-2xl font-bold">₱{result.costPerPerson}</p>
                 </div>
 
-                {/* Passengers */}
                 <div className="flex items-center gap-2 flex-wrap">
                   {Array.from({ length: result.passengers }).map((_, i) => (
                     <div key={i} className="w-8 h-8 rounded-full bg-emerald-900 border border-emerald-700 flex items-center justify-center text-xs font-bold text-emerald-400">
