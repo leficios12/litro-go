@@ -42,7 +42,7 @@ const CalculatorSection = () => {
     setRouteData(null)
 
     try {
-      const distanceData = await calculateDistance(from.label, to.label)
+      const distanceData = await calculateDistance(from.label, to.label, from.coords, to.coords)
 
       if (distanceData.message) {
         setError(distanceData.message)
