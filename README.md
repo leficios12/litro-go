@@ -63,39 +63,42 @@ npm run dev
 ---
 
 ## Project Structure
+
+```
 litro-go/
 ├── Backend/
-│ ├── src/
-│ │ ├── controllers/
-│ │ │ ├── fuelController.js
-│ │ │ └── distanceController.js
-│ │ ├── models/
-│ │ │ └── FuelPrice.js
-│ │ ├── routes/
-│ │ │ ├── fuelRoutes.js
-│ │ │ └── distanceRoutes.js
-│ │ ├── seed.js
-│ │ └── index.js
+│   ├── src/
+│   │   ├── controllers/
+│   │   │   ├── fuelController.js
+│   │   │   └── distanceController.js
+│   │   ├── models/
+│   │   │   └── FuelPrice.js
+│   │   ├── routes/
+│   │   │   ├── fuelRoutes.js
+│   │   │   └── distanceRoutes.js
+│   │   ├── seed.js
+│   │   └── index.js
 └── Frontend/
-├── src/
-│ ├── api/
-│ │ ├── fuel.js
-│ │ └── distance.js
-│ ├── components/
-│ │ ├── Buttons.jsx
-│ │ ├── GasCard.jsx
-│ │ ├── LocationInput.jsx
-│ │ ├── MapView.jsx
-│ │ └── StepsCard.jsx
-│ ├── sections/
-│ │ ├── Navbar.jsx
-│ │ ├── HeroSection.jsx
-│ │ ├── InfoSection.jsx
-│ │ ├── Steps.jsx
-│ │ ├── GasWeekSection.jsx
-│ │ ├── CalculatorSection.jsx
-│ │ └── AdminSection.jsx
-│ └── App.jsx
+    ├── src/
+    │   ├── api/
+    │   │   ├── fuel.js
+    │   │   └── distance.js
+    │   ├── components/
+    │   │   ├── Buttons.jsx
+    │   │   ├── GasCard.jsx
+    │   │   ├── LocationInput.jsx
+    │   │   ├── MapView.jsx
+    │   │   └── StepsCard.jsx
+    │   ├── sections/
+    │   │   ├── Navbar.jsx
+    │   │   ├── HeroSection.jsx
+    │   │   ├── InfoSection.jsx
+    │   │   ├── Steps.jsx
+    │   │   ├── GasWeekSection.jsx
+    │   │   ├── CalculatorSection.jsx
+    │   │   └── AdminSection.jsx
+    │   └── App.jsx
+```
 
 
 ---
