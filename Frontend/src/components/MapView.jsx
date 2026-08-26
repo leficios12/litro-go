@@ -41,7 +41,7 @@ const MapView = ({ fromCoords, toCoords, routeCoordinates }) => {
     <MapContainer
       center={fromCoords || [12.8797, 121.7740]}
       zoom={10}
-      className="w-full h-full rounded-2xl"
+      className="w-full h-full rounded-2xl -z-0"
       style={{ minHeight: '400px' }}
     >
       {/* Dark map tile — Waze-like */}
@@ -79,4 +79,4 @@ const MapView = ({ fromCoords, toCoords, routeCoordinates }) => {
   )
 }
 
-export default MapView
+export default MapView;

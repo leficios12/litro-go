@@ -198,7 +198,7 @@ const CalculatorSection = () => {
           {/* Right — Map + Results */}
           <div className="flex flex-col gap-4">
 
-            <div className="rounded-2xl overflow-hidden border border-slate-700" style={{ height: '400px' }}>
+            <div className="rounded-2xl overflow-hidden border border-slate-700 " style={{ height: '400px' }}>
               <MapView
                 fromCoords={routeData?.fromCoords}
                 toCoords={routeData?.toCoords}
