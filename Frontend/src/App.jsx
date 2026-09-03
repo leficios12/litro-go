@@ -1,12 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import HeroSection from './sections/HeroSection'
-import InfoSection from './sections/InfoSection'
-import Steps from './sections/Steps'
-import GasWeekSection from './sections/GasWeekSection'
-import AdminSection from './sections/AdminSection'
-import CalculatorSection from './sections/CalculatorSection'
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import HeroSection from './sections/HeroSection';
+import InfoSection from './sections/InfoSection';
+import Steps from './sections/Steps';
+import GasWeekSection from './sections/GasWeekSection';
+import AdminSection from './sections/AdminSection';
+import CalculatorSection from './sections/CalculatorSection';
+import AboutSection from './sections/AboutSection';
 
 const MainPage = () => (
   <>
@@ -18,6 +18,8 @@ const MainPage = () => (
       <Steps />
       <GasWeekSection />
       <CalculatorSection />
+      <AboutSection />
+      
     </main>
   </>
 )
