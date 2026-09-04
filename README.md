@@ -1,4 +1,4 @@
-# LitroGo ⛽
+# LitroGo
 
 A trip fuel cost calculator built for road trips. Enter your route, set your vehicle details, and split the total cost with your circle.
 
@@ -96,7 +96,8 @@ litro-go/
     │   │   ├── Steps.jsx
     │   │   ├── GasWeekSection.jsx
     │   │   ├── CalculatorSection.jsx
-    │   │   └── AdminSection.jsx
+    │   │   ├── AdminSection.jsx
+    │   │  └── AboutSection.jsx
     │   └── App.jsx
 ```
 
