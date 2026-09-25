@@ -39,8 +39,8 @@ const FitBounds = ({ coordinates }) => {
 const MapView = ({ fromCoords, toCoords, routeCoordinates }) => {
   return (
     <MapContainer
-      center={fromCoords || [12.8797, 121.7740]}
-      zoom={10}
+      center={fromCoords || [14.5995, 120.9842]}
+      zoom={12}
       className="w-full h-full rounded-2xl -z-0"
       style={{ minHeight: '400px' }}
     >
