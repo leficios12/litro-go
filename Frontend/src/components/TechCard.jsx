@@ -7,4 +7,4 @@ const TechCard = (props) => {
     )
 }
 
-export default TechCard();
+export default TechCard;
