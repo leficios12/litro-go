@@ -60,6 +60,11 @@ Run the frontend:
 npm run dev
 ```
 
+Run the backend:
+```bash
+npm run dev
+```
+
 ---
 
 ## Project Structure
