@@ -8,19 +8,19 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-10 py-2 flex items-center justify-between">
 
         {/* Logo */}
-        <a href="#hero" className="flex items-center">
+        <a href="/#hero" className="flex items-center">
           <img src="/images/LitroGOLogo.png" alt="LitroGo" className="h-20" />
         </a>
 
         {/* Nav Links */}
         <div className="flex items-center gap-20">
-          <a href="#how-it-works" className={baseStyle}>
+          <a href="/#how-it-works" className={baseStyle}>
             How it works
           </a>
-          <a href="#calculator" className={baseStyle}>
+          <a href="/#calculator" className={baseStyle}>
             Calculator
           </a>
-          <a href="#about" className={baseStyle}>
+          <a href="/#about" className={baseStyle}>
             About
           </a>
           <a href="https://github.com/Leficios12" target="_blank" rel="noreferrer" className={baseStyle}>
