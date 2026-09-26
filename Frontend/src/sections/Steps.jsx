@@ -3,7 +3,7 @@ import StepsCard from '../components/StepsCard.jsx'
 
 const Steps = () => {
   return (
-    <section className="px-12 py-20 bg-[#0a1020]">
+    <section id="how-it-works" className="px-12 py-20 bg-[#0a1020]">
       <div className="relative mx-auto  max-w-6xl flex-col gap-8 lg:flex-row lg:items-center lg:justify-between ">
         <p className="text-emerald-600 text-xs font-semibold tracking-widest mb-3">HOW IT WORKS</p>
         <h2 className="text-white text-3xl font-bold mb-2">Plan your trip, split the cost</h2>
@@ -15,7 +15,7 @@ const Steps = () => {
         
         <StepsCard number="1" 
         title="Enter your route" 
-        desc="Type your starting point and destination. We calculate the actual road distance via Google Maps." 
+        desc="Type your starting point and destination. We calculate the actual road distance via Open Route Service Maps." 
         />
         <StepsCard number="2" 
         title="Set vehicle details" 
